@@ -135,7 +135,7 @@
             <div class="video-wrapper">
                 <video id="video" autoplay playsinline></video>
                 <div id="countdown-ui" class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <span id="countdown-text" class="font-extrabold text-white opacity-0 transition-all duration-500 drop-shadow-2xl">3</span>
+                    <span id="countdown-text" class="font-extrabold text-white opacity-0 transition-all duration-300 drop-shadow-2xl">3</span>
                 </div>
             </div>
 
@@ -204,7 +204,7 @@
 
     <footer class="mt-auto py-6 md:py-10 text-center border-t border-slate-100 bg-white/50">
         <p class="text-[8px] md:text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] px-4">
-            &copy; 2024 ingphotobooth memorable photobooth experience
+            &copy; 2024 ingphotobooth online photobooth
         </p>
     </footer>
 
@@ -383,7 +383,7 @@
             sCtx.fillStyle = "#94a3b8";
             sCtx.font = "500 24px 'Plus Jakarta Sans'";
             sCtx.letterSpacing = "4px";
-            sCtx.fillText("MEMORABLE EXPERIENCE", 400, y + 200);
+            sCtx.fillText("MEMORABLE EXPERIENCE PHOTOBOOTH", 400, y + 200);
 
             const finalUrl = stripCanvas.toDataURL('image/png');
             createSinglePhoto(finalUrl);
