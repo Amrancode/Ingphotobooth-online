@@ -385,15 +385,22 @@
             const stripCanvas = document.createElement('canvas');
             const sCtx = stripCanvas.getContext('2d');
             
-            // Rasio tetap untuk strip (biasanya vertikal tinggi)
+            // Load gambar pertama untuk mengecek aspek rasio asli agar tidak gepeng
+            const firstImg = await loadImage(urls[0]);
+            const imageRatio = firstImg.width / firstImg.height;
+
+            // Rasio tetap untuk strip (vertikal tinggi)
             const stripWidth = 800;
             const margin = 60;
             const itemWidth = stripWidth - (margin * 2);
-            const itemHeight = itemWidth * 0.75; // Sesuai aspek 4:3
+            // Hitung tinggi item berdasarkan aspek rasio asli gambar hasil capture
+            const itemHeight = itemWidth / imageRatio; 
             
             stripCanvas.width = stripWidth;
+            // Tinggi total: (4 gambar * tinggi gambar) + (5 margin) + 200 (area teks bawah)
             stripCanvas.height = (itemHeight * 4) + (margin * 5) + 200;
 
+            // Background Putih
             sCtx.fillStyle = "white";
             sCtx.fillRect(0, 0, stripCanvas.width, stripCanvas.height);
 
@@ -404,6 +411,7 @@
                 currentY += itemHeight + margin;
             }
 
+            // Branding di bawah strip
             sCtx.fillStyle = "black";
             sCtx.font = "800 50px 'Plus Jakarta Sans'";
             sCtx.textAlign = "center";
